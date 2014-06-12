@@ -14,7 +14,7 @@ public class LongPathDelete {
         for (int i = 0; i < listOfFiles.length; i++) {
             final File file = listOfFiles[i];
 
-            if (file.getName().length() > 120 && file.lastModified() < System.currentTimeMillis() - 86400000) {
+            if ((file.getAbsolutePath() + file.getName()).length() > 120 && file.lastModified() < System.currentTimeMillis() - 86400000) {
                 System.out.println("Will delete " + file.toString());
                 file.renameTo(new File(path + "/" + i + "d.d"));
             }
